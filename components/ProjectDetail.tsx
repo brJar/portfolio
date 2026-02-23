@@ -607,6 +607,68 @@ const ProjectDetail = ({ project, allProjects, onBack, onSelectProject, isEditMo
 
                                     <div className="toolbar-divider"></div>
 
+                                    {/* Border Controls */}
+                                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginRight: 8 }}>
+                                        <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
+                                            {/* Width */}
+                                            <div style={{ position: 'relative', width: 36 }}>
+                                                <input
+                                                    type="number"
+                                                    min="0"
+                                                    max="20"
+                                                    value={parseInt(String(selectedItem.style?.borderWidth || 0))}
+                                                    onChange={(e) => {
+                                                        const val = parseInt(e.target.value) || 0;
+                                                        updateItemStyle(selectedSectionId!, selectedElementId!, {
+                                                            borderWidth: `${val}px`,
+                                                            borderStyle: val > 0 ? 'solid' : 'none',
+                                                            borderColor: selectedItem.style?.borderColor || '#000'
+                                                        });
+                                                    }}
+                                                    style={{ 
+                                                        width: '100%', height: '26px', border: '1px solid #e2e8f0', borderRadius: '4px', 
+                                                        fontSize: '11px', padding: '2px 4px 2px 4px', textAlign: 'center', backgroundColor: '#f8fafc'
+                                                    }}
+                                                    placeholder="0"
+                                                />
+                                                <span style={{ position: 'absolute', right: 2, top: 6, fontSize: '8px', color: '#94a3b8', pointerEvents: 'none' }}>px</span>
+                                            </div>
+
+                                            {/* Color */}
+                                            <div style={{ width: 26, height: 26, borderRadius: '4px', overflow: 'hidden', border: '1px solid #e2e8f0', position: 'relative' }}>
+                                                <input
+                                                    type="color"
+                                                    value={selectedItem.style?.borderColor || '#000000'}
+                                                    onChange={(e) => updateItemStyle(selectedSectionId!, selectedElementId!, { borderColor: e.target.value })}
+                                                    style={{ 
+                                                        position: 'absolute', top: -2, left: -2, width: '30px', height: '30px', 
+                                                        border: 'none', padding: 0, cursor: 'pointer' 
+                                                    }}
+                                                />
+                                            </div>
+
+                                            {/* Radius */}
+                                            <div style={{ position: 'relative', width: 36 }}>
+                                                <input
+                                                    type="number"
+                                                    min="0"
+                                                    max="100"
+                                                    value={parseInt(String(selectedItem.style?.borderRadius || 0))}
+                                                    onChange={(e) => updateItemStyle(selectedSectionId!, selectedElementId!, { borderRadius: `${e.target.value}px` })}
+                                                    style={{ 
+                                                        width: '100%', height: '26px', border: '1px solid #e2e8f0', borderRadius: '4px', 
+                                                        fontSize: '11px', padding: '2px 4px 2px 4px', textAlign: 'center', backgroundColor: '#f8fafc'
+                                                    }}
+                                                    placeholder="0"
+                                                />
+                                                <span style={{ position: 'absolute', right: 2, top: 6, fontSize: '8px', color: '#94a3b8', pointerEvents: 'none' }}>R</span>
+                                            </div>
+                                        </div>
+                                        <span style={{ fontSize: '9px', marginTop: 2, color: '#666', fontWeight: 600 }}>Border</span>
+                                    </div>
+
+                                    <div className="toolbar-divider"></div>
+
                                     {/* Background Color Picker for Images */}
                                     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                                         <div style={{ position: 'relative', width: '20px', height: '20px', cursor: 'pointer' }}>
