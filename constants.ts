@@ -43,7 +43,7 @@ export const INITIAL_SITE_CONFIG = {
     "title": "Tarasenko Dmitry",
     "description": "UI/UX Designer portfolio showcasing web interfaces, sites, and mobile applications.",
     "gaId": "",
-    "favicon": "/uploads/1771800428926-546206979.svg"
+    "favicon": "/uploads/1771799381143-767493840.svg"
 };
 export const INITIAL_MAIN_CONTENT = {
     "welcome": "Hi, I'm",

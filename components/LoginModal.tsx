@@ -5,6 +5,8 @@
 
 import React, { useState } from 'react';
 
+declare const process: any;
+
 interface LoginModalProps {
     isOpen: boolean;
     onClose: () => void;

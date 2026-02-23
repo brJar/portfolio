@@ -217,7 +217,7 @@ const ProjectDetail = ({ project, allProjects, onBack, onSelectProject, isEditMo
         addToHistory(newElements);
     };
 
-    const updateItemStyle = (sectionId: string | undefined, itemId: string | null, stylePatch: React.CSSProperties) => {
+    const updateItemStyle = (sectionId: string | null | undefined, itemId: string | null, stylePatch: React.CSSProperties) => {
         if (!sectionId || !itemId) return;
         const section = project.elements.find(s => s.id === sectionId);
         if (!section || !section.children) return;

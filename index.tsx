@@ -45,7 +45,7 @@ const getInitialSiteConfig = () => {
 
 function App() {
   const [projects, setProjects] = useState<Project[]>(getInitialProjects);
-  const [siteConfig, setSiteConfig] = useState(getInitialSiteConfig);
+  const [siteConfig, setSiteConfig] = useState<typeof INITIAL_SITE_CONFIG>(getInitialSiteConfig);
 
   useEffect(() => {
       try { localStorage.setItem(STORAGE_KEY, JSON.stringify(projects)); } catch (e) {}
@@ -302,7 +302,7 @@ export const INITIAL_PROJECTS = ${JSON.stringify(projects, null, 4)};
       setProjects(prev => prev.map(p => p.id === id ? { ...p, elements } : p));
   }, []);
 
-  const updateMainContent = (field: keyof typeof mainContent, value: string) => {
+  const updateMainContent = (field: string, value: string) => {
       setMainContent(prev => ({ ...prev, [field]: value }));
   };
 
@@ -344,7 +344,6 @@ export const INITIAL_PROJECTS = ${JSON.stringify(projects, null, 4)};
           title: "New Project", 
           desc: "Category", 
           image: "",
-          shortDescription: "Short description...",
           ...DEFAULT_CONTENT, 
           heroOverlayText: "NEW PROJECT",
           elements: createDefaultElements(newId, "New Project", "", "")
